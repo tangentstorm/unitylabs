@@ -7,6 +7,10 @@ public class Scrolling : MonoBehaviour {
   public List<ScrollLayer> objects;
   public bool scrolling = false;
 
+  void Awake() {
+    foreach (var o in objects) o.Init();
+  }
+
   void Update() {
     if (scrolling) {
       foreach (var o in objects) o.ScrollBy(delta);
