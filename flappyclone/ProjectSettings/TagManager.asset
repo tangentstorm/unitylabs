@@ -50,9 +50,6 @@ TagManager:
   - name: pipes
     uniqueID: 2256207325
     locked: 0
-  - name: bird
-    uniqueID: 2073109741
-    locked: 0
   - name: ground
     uniqueID: 3555344667
     locked: 0
