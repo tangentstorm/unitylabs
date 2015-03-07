@@ -9,9 +9,7 @@ public class Scrolling : MonoBehaviour {
 
   void Update() {
     if (scrolling) {
-      foreach (var o in objects) o.gameObj.transform.position =
-          (Vector2) o.gameObj.transform.position + o.scrollFactor * delta;
-
+      foreach (var o in objects) o.ScrollBy(delta);
     }
   }
 }
