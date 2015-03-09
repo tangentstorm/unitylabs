@@ -45,6 +45,9 @@ TagManager:
   - name: sky
     uniqueID: 3517494353
     locked: 0
+  - name: clouds
+    uniqueID: 2746238865
+    locked: 0
   - name: city
     uniqueID: 3712845083
     locked: 0

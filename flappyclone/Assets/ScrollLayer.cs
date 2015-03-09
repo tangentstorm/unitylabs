@@ -9,8 +9,7 @@ public class ScrollLayer {
   public float scrollFactor = 1f;
   public bool tileX;
 
-  public float xPadding = 0;
-  private float xSpacing = 0; // distance at which to space the items (usually the width of the object)
+  public float xSpacing = 100; // distance at which to space the items (usually the width of the object)
   private float xThresh = 0; // amount of movement required before re-arranging the clones.
 
   private float xCount = 0;
@@ -20,7 +19,6 @@ public class ScrollLayer {
     clones.Add(gameObj);
     
     if (tileX) {
-      xSpacing = gameObj.GetComponent<Renderer>().bounds.size.x + xPadding;
       xThresh = xSpacing / 2 * scrollFactor;
       // we will make 2 copies. items 0,1,2 = left, original, right
       for (int i=0; i<2; i++) clones.Add(GameObject.Instantiate(gameObj));
