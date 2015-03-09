@@ -40,7 +40,7 @@ public class ScrollLayer {
     // repetition:
     xCount += change.x;
     if (tileX) {
-      if (xCount < -xSpacing) {
+      if (xCount < -xThresh) {
         clones[0].transform.position = clones[1].transform.position;
         clones[1].transform.position = clones[2].transform.position;
         clones[2].transform.position = (Vector2) clones[2].transform.position + new Vector2(xSpacing, 0);
