@@ -5,8 +5,7 @@ using System.Collections;
 public class ObjectWindow : EditorWindow {
 
 	public GameObject obj = null;
-	public MonoBehaviour myb = null;
-	[System.NonSerialized] private bool hasInitialized;
+	public GameObject myb = null;
 
 	[MenuItem("EditorTricks/ObjectWindow")]
 	static void Init() {
@@ -14,19 +13,13 @@ public class ObjectWindow : EditorWindow {
 		window.position = new Rect(0, 0, 250, 80);
 		window.Show();
 	}
-
-	void OnEnable() {
-		if (!ReferenceEquals(myb, null)) myb=EditorUtility.InstanceIDToObject(myb.GetInstanceID()) as MonoBehaviour;
-		hasInitialized = true;
-	}
-
 	void OnInspectorUpdate() {
 		Repaint();
 	}
 
 	void OnGUI() {
-		if (!hasInitialized) OnEnable();
 		obj = EditorGUILayout.ObjectField(obj, typeof(GameObject), true) as GameObject;
-		myb = EditorGUILayout.ObjectField(myb, typeof(MonoBehaviour), true) as MonoBehaviour;
+	  MonoBehaviour mbref = EditorGUILayout.ObjectField(myb, typeof(MonoBehaviour), true) as MonoBehaviour;
+    if (!ReferenceEquals(mbref, null)) myb = mbref.gameObject;
 	}
 }
