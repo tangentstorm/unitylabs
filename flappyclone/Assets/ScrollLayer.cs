@@ -17,7 +17,7 @@ public class ScrollLayer {
 
   public void Init() {
     clones.Add(gameObj);
-    
+
     if (tileX) {
       xThresh = xSpacing / 2 * scrollFactor;
       // we will make 2 copies. items 0,1,2 = left, original, right

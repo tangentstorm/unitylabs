@@ -4,20 +4,20 @@ using System.Collections;
 
 public class ScreenFlow : MonoBehaviour {
 
-	static ScreenFlow self; // singleton
+  static ScreenFlow self; // singleton
   public GameObject[] screens;
-	Animator animator;
+  Animator animator;
 
-	public void Awake() {
-		if (self == null) {
-			self = this;
-			self.animator = GetComponent<Animator>();
+  public void Awake() {
+    if (self == null) {
+      self = this;
+      self.animator = GetComponent<Animator>();
       foreach (var screen in self.screens) {
         screen.transform.position = Vector3.zero;
         screen.SetActive(false);
       }
-		} else Destroy(this);
-	}
+    } else Destroy(this);
+  }
 
   public static void HideScreens() {
     foreach (var screen in self.screens) {
@@ -31,9 +31,9 @@ public class ScreenFlow : MonoBehaviour {
     foreach (var s in self.screens) if (s.name == name) s.SetActive(true);
   }
 
-	public static void GameOver() {
-		self.animator.SetTrigger("GameOver");
-	}
+  public static void GameOver() {
+    self.animator.SetTrigger("GameOver");
+  }
 
   public static void FirstFlap() {
     self.animator.SetTrigger("FirstFlap");
