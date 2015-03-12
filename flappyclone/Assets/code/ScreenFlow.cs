@@ -25,7 +25,10 @@ public class ScreenFlow : MonoBehaviour {
     }
   }
 
-  public static bool isReady() { return self != null;  }
+  public static bool isReady() {
+    return self != null;
+  }
+
   public static void SwitchTo(string name) {
     HideScreens();
     foreach (var s in self.screens) if (s.name == name) s.SetActive(true);

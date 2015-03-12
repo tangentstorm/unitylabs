@@ -14,10 +14,13 @@ public class BirdController : MonoBehaviour {
   }
 
   void OnCollisionEnter2D(Collision2D c) {
-    Debug.Log("collision! name:" + c.gameObject.name);
-    if (c.gameObject.tag == "ceil") { } else {
-      ScreenFlow.GameOver();
-    }
+    if (c.gameObject.tag == "ceil") { }
+    else ScreenFlow.GameOver();
+  }
+
+  void OnTriggerExit2D(Collider2D c) {
+    // if (c.gameObject.tag=="endZone")
+    GameWorld.score += 10;
   }
 
   public void Flap() {

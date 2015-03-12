@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class GameWorld : MonoBehaviour {
 
-  static GameWorld self; // singleton
+  public static int score;
+
+  private static GameWorld self; // singleton
+
   public BirdController bird;
+  public GameObject scoreText;
+  public GameObject pipes;
+
   private Vector3 startPos = Vector3.zero;
 
   public void Awake() {
@@ -13,11 +19,13 @@ public class GameWorld : MonoBehaviour {
 
   public void Start() {
     self.startPos = bird.transform.position;
+    score = 0;
   }
+
+  // bird commands
 
   public static void DropBird() {
     self.bird.GetComponent<Rigidbody2D>().isKinematic = false;
-    Debug.Log("bird should be falling.");
   }
 
   public static void HoldBird() {
@@ -37,5 +45,30 @@ public class GameWorld : MonoBehaviour {
     self.bird.Flap();
   }
 
+  // pipe commands
+
+  // !! These don't actually work because the pipe objects get cloned.
+  //    I could just give them a tag and try to find them all and hide
+  //    and show them, but the next thing on my list is to refactor the
+  //    scrolling system so that scrolling is just a MonoBehaviour, and
+  //    then it will be possible to deactivate entire layers.
+
+  public static void HidePipes() {
+    // TODO: self.pipes.SetActive(false);
+  }
+
+  public static void ShowPipes() {
+    // TODO: self.pipes.SetActive(true);
+  }
+
+  // score commands
+
+  public static void HideScore() {
+	self.scoreText.SetActive(false);
+  }
+	
+  public static void ShowScore() {
+	self.scoreText.SetActive(true);
+  }
 
 }

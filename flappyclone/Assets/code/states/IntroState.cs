@@ -7,6 +7,8 @@ public class IntroState : StateMachineBehaviour {
     ScreenFlow.HideScreens();
     GameWorld.ShowBird();
     GameWorld.HoldBird();
+    GameWorld.HidePipes();
+	GameWorld.HideScore();
   }
 
   override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
